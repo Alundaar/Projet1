@@ -3,6 +3,7 @@ try
 {
     // On se connecte à MySQL
     $bdd = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
+    echo 'Connection réussie !';
 }
 catch(Exception $e)
 {
@@ -10,7 +11,13 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$reponse = $bdd->query( 'SELECT (TITRE,CONTENU) FROM article');
+$reponse = $bdd->query( 'SELECT (article.TITRE,article.CONTENU) FROM blog.article;');
+if ( is_null($repounse)){
+	echo 'la réponse est null';
+}
+if ( is_empty($repounse)){
+	echo 'la réponse est vide';
+}
 
 while( $donnees = $reponse->fetch())
 {
