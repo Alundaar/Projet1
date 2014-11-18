@@ -11,15 +11,13 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$reponse = $bdd->query( 'SELECT (article.TITRE,article.CONTENU) FROM blog.article;');
-if ( is_null($repounse)){
-	echo 'la réponse est null';
-}
-if ( is_empty($repounse)){
-	echo 'la réponse est vide';
-}
+mysql_select_db('blog',$bdd);
 
-while( $donnees = $reponse->fetch())
+$sql = "SELECT TITRE,CONTENU FROM article";
+
+$req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
+
+while( $data = mysql_fetch_array($req) )
 {
 echo $donnees['TITRE'];
 echo $donnees['CONTENU'];
