@@ -2,7 +2,7 @@
 try
 {
     // On se connecte à MySQL
-    $bdd = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
+    $bdd = mysql_connect('localhost', 'root', '');
     echo 'Connection réussie !';
 }
 catch(Exception $e)
