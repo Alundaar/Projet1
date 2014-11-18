@@ -14,8 +14,8 @@ $reponse = $bdd->query( 'SELECT (TITRE,CONTENU) FROM article');
 
 while( $donnees = $reponse->fetch())
 {
-echo $donnees['TITRE']
-echo $donnees['CONTENU']
+echo $donnees['TITRE'];
+echo $donnees['CONTENU'];
 }
 
 $reponse->closeCursor();
