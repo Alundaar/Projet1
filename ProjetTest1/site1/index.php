@@ -17,11 +17,10 @@ $sql = "SELECT TITRE,CONTENU FROM article";
 
 $req = mysql_query($sql) or die('Erreur SQL !<br>'.$sql.'<br>'.mysql_error());
 
-while( $data = mysql_fetch_array($req) )
+while( $donnees = mysql_fetch_array($req) )
 {
 echo $donnees['TITRE'];
 echo $donnees['CONTENU'];
 }
 
-$reponse->closeCursor();
 ?>
